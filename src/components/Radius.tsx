@@ -1,0 +1,91 @@
+const Radius = (): JSX.Element => (
+    <svg width="450" height="450" xmlns="http://www.w3.org/2000/svg">
+        {/* <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ --> */}
+
+        <g>
+            <title>background</title>
+            <rect fill="none" id="canvas_background" height="455" width="455" y="-1" x="-1" />
+            <g
+                display="none"
+                overflow="visible"
+                y="0"
+                x="0"
+                height="100%"
+                width="100%"
+                id="canvasGrid">
+                <rect
+                    fill="url(#gridpattern)"
+                    stroke-width="0"
+                    y="0"
+                    x="0"
+                    height="100%"
+                    width="100%"
+                />
+            </g>
+        </g>
+        <g>
+            <title>Layer 1</title>
+            <ellipse
+                opacity="1"
+                ry="225"
+                rx="225"
+                id="svg_1"
+                cy="225"
+                cx="225"
+                stroke-width="1.5"
+                stroke="#000"
+                fill="none"
+            />
+            <ellipse
+                ry="15"
+                rx="15"
+                id="svg_3"
+                cy="66"
+                cx="66"
+                fill-opacity="null"
+                stroke-opacity="null"
+                stroke-width="0"
+                stroke="black"
+                fill="black"
+            />
+            <ellipse
+                ry="15"
+                rx="15"
+                id="svg_4"
+                cy="384"
+                cx="384"
+                fill-opacity="null"
+                stroke-opacity="null"
+                stroke-width="0"
+                stroke="black"
+                fill="black"
+            />
+            <ellipse
+                ry="15"
+                rx="15"
+                id="svg_5"
+                cy="384"
+                cx="66"
+                fill-opacity="null"
+                stroke-opacity="null"
+                stroke-width="0"
+                stroke="black"
+                fill="black"
+            />
+            <ellipse
+                ry="15"
+                rx="15"
+                id="svg_8"
+                cy="66"
+                cx="384"
+                fill-opacity="9"
+                stroke-opacity="1"
+                stroke-width="0"
+                stroke="black"
+                fill="black"
+            />
+        </g>
+    </svg>
+);
+
+export default Radius;
