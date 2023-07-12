@@ -3,9 +3,9 @@ import './index.scss';
 interface ButtonProps {
     className?: string;
     text?: number | string;
-    value?: number;
+    value?: string | number;
     disabled?: boolean;
-    onClick?(): void;
+    onClick?: (event: number) => void;
 }
 const Button = ({
     text = 'No text',
@@ -15,7 +15,11 @@ const Button = ({
     onClick,
 }: ButtonProps): JSX.Element => {
     return (
-        <button disabled={disabled} onClick={onClick} value={value} className={className}>
+        <button
+            disabled={disabled}
+            //  onClick={onClick}
+            value={value}
+            className={className}>
             {text}
         </button>
     );

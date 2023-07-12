@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ButtonHTMLAttributes, useEffect, useState } from 'react';
 import './App.scss';
 import 'swiper/css/bundle';
 import { gsap } from 'gsap';
@@ -6,19 +6,16 @@ import Radius from './components/Radius';
 import axios from 'axios';
 import { types } from './lib/info';
 import SwiperProp from './components/Swiper';
-import Selector from './components/Selector';
 
 function App(): JSX.Element {
-    const [count, setCount] = useState<string['1']>('1');
+    const [count, setCount] = useState<any>(1);
     const [historyDate, setHistoryDate] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [fetching, setFetching] = useState(true);
 
-    const onClickBtn = (event: React.ChangeEvent<HTMLButtonElement>) => {
-        setCount(event.target.value);
-    };
-    const onSelectorBtn = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setCount(event.target.value);
+    const onSelectorBtn = (event: number) => {
+        setCount(event);
+        console.log(event);
     };
 
     gsap.to('.main__history', {
@@ -49,7 +46,7 @@ function App(): JSX.Element {
                             <button
                                 className="types__style__btn"
                                 value={i + 1}
-                                onChange={onClickBtn}>
+                                onClick={() => onSelectorBtn(i + 1)}>
                                 {i + 1}
                             </button>
                         </div>
@@ -84,22 +81,25 @@ function App(): JSX.Element {
                                         <span>{event.year}</span>
                                     ))}
                             </div>
-
                             <div className="main__date__count">
                                 <h4>
                                     {count} / {types.length}
                                 </h4>
-                                <Selector
-                                    count={count}
-                                    setCount={setCount}
-                                    onSelectorBtn={onSelectorBtn}
-                                />
-                                {/* <select value={count} onChange={onSelectorBtn}>
-                                    <option value="1">Технологии</option>
-                                    <option value="2">Наука</option>
-                                    <option value="3">Фильмы</option>
-                                    <option value="4">История</option>
-                                </select> */}
+
+                                <button
+                                    value={count - 1}
+                                    onClick={() =>
+                                        onSelectorBtn(count > 1 ? count - 1 : count + 0)
+                                    }>
+                                    &#x21D0;
+                                </button>
+                                <button
+                                    value={count + 1}
+                                    onClick={() =>
+                                        onSelectorBtn(count <= 3 ? count + 1 : count + 0)
+                                    }>
+                                    &#x21D2;
+                                </button>
                             </div>
                         </div>
                         <div className="main__scroll">
@@ -111,12 +111,20 @@ function App(): JSX.Element {
                                 <h4>
                                     {count} / {types.length}
                                 </h4>
-                                {/* <select value={count} onChange={onSelectorBtn}>
-                                    <option value="1">Технологии</option>
-                                    <option value="2">Наука</option>
-                                    <option value="3">Фильмы</option>
-                                    <option value="4">История</option>
-                                </select> */}
+                                <button
+                                    value={count - 1}
+                                    onClick={() =>
+                                        onSelectorBtn(count > 1 ? count - 1 : count + 0)
+                                    }>
+                                    &#x21D0;
+                                </button>
+                                <button
+                                    value={count + 1}
+                                    onClick={() =>
+                                        onSelectorBtn(count <= 3 ? count + 1 : count + 0)
+                                    }>
+                                    &#x21D2;
+                                </button>
                             </div>
                         </div>
                     </>
