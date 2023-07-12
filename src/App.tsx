@@ -6,12 +6,20 @@ import Radius from './components/Radius';
 import axios from 'axios';
 import { types } from './lib/info';
 import SwiperProp from './components/Swiper';
+import Selector from './components/Selector';
 
 function App(): JSX.Element {
     const [count, setCount] = useState<string['1']>('1');
     const [historyDate, setHistoryDate] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [fetching, setFetching] = useState(true);
+
+    const onClickBtn = (event: React.ChangeEvent<HTMLButtonElement>) => {
+        setCount(event.target.value);
+    };
+    const onSelectorBtn = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setCount(event.target.value);
+    };
 
     gsap.to('.main__history', {
         x: -250,
@@ -31,13 +39,6 @@ function App(): JSX.Element {
                 .finally(() => setFetching(false));
         }
     }, [fetching]);
-
-    const onClickBtn = (event: React.ChangeEvent<HTMLButtonElement>) => {
-        setCount(event.target.value);
-    };
-    const onSelectorBtn = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setCount(event.target.value);
-    };
 
     return (
         <div className="App">
@@ -88,12 +89,17 @@ function App(): JSX.Element {
                                 <h4>
                                     {count} / {types.length}
                                 </h4>
-                                <select value={count} onChange={onSelectorBtn}>
+                                <Selector
+                                    count={count}
+                                    setCount={setCount}
+                                    onSelectorBtn={onSelectorBtn}
+                                />
+                                {/* <select value={count} onChange={onSelectorBtn}>
                                     <option value="1">Технологии</option>
                                     <option value="2">Наука</option>
                                     <option value="3">Фильмы</option>
                                     <option value="4">История</option>
-                                </select>
+                                </select> */}
                             </div>
                         </div>
                         <div className="main__scroll">
@@ -105,12 +111,12 @@ function App(): JSX.Element {
                                 <h4>
                                     {count} / {types.length}
                                 </h4>
-                                <select value={count} onChange={onSelectorBtn}>
+                                {/* <select value={count} onChange={onSelectorBtn}>
                                     <option value="1">Технологии</option>
                                     <option value="2">Наука</option>
                                     <option value="3">Фильмы</option>
                                     <option value="4">История</option>
-                                </select>
+                                </select> */}
                             </div>
                         </div>
                     </>
