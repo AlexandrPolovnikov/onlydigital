@@ -6,6 +6,7 @@ import Radius from './components/Radius';
 import axios from 'axios';
 import { types } from './lib/info';
 import SwiperProp from './components/Swiper';
+import Button from './components/Button';
 
 function App(): JSX.Element {
     const [count, setCount] = useState<any>(1);
@@ -35,7 +36,7 @@ function App(): JSX.Element {
                 })
                 .finally(() => setFetching(false));
         }
-    }, [fetching]);
+    }, [fetching, historyDate]);
 
     return (
         <div className="App">
@@ -43,12 +44,12 @@ function App(): JSX.Element {
                 <div className="types">
                     {types.map((e, i) => (
                         <div className="types__style">
-                            <button
+                            <Button
+                                text={i + 1}
                                 className="types__style__btn"
                                 value={i + 1}
-                                onClick={() => onSelectorBtn(i + 1)}>
-                                {i + 1}
-                            </button>
+                                onClick={() => onSelectorBtn(i + 1)}
+                            />
                         </div>
                     ))}
                 </div>
@@ -85,21 +86,18 @@ function App(): JSX.Element {
                                 <h4>
                                     {count} / {types.length}
                                 </h4>
-
-                                <button
+                                <Button
+                                    text="&#x21D0;"
                                     value={count - 1}
-                                    onClick={() =>
-                                        onSelectorBtn(count > 1 ? count - 1 : count + 0)
-                                    }>
-                                    &#x21D0;
-                                </button>
-                                <button
+                                    onClick={() => onSelectorBtn(count > 1 ? count - 1 : count + 0)}
+                                />
+                                <Button
                                     value={count + 1}
                                     onClick={() =>
                                         onSelectorBtn(count <= 3 ? count + 1 : count + 0)
-                                    }>
-                                    &#x21D2;
-                                </button>
+                                    }
+                                    text="&#x21D2;"
+                                />
                             </div>
                         </div>
                         <div className="main__scroll">
@@ -111,20 +109,18 @@ function App(): JSX.Element {
                                 <h4>
                                     {count} / {types.length}
                                 </h4>
-                                <button
+                                <Button
+                                    text="&#x21D0;"
                                     value={count - 1}
-                                    onClick={() =>
-                                        onSelectorBtn(count > 1 ? count - 1 : count + 0)
-                                    }>
-                                    &#x21D0;
-                                </button>
-                                <button
+                                    onClick={() => onSelectorBtn(count > 1 ? count - 1 : count + 0)}
+                                />
+                                <Button
                                     value={count + 1}
                                     onClick={() =>
                                         onSelectorBtn(count <= 3 ? count + 1 : count + 0)
-                                    }>
-                                    &#x21D2;
-                                </button>
+                                    }
+                                    text="&#x21D2;"
+                                />
                             </div>
                         </div>
                     </>

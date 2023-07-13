@@ -7,10 +7,6 @@ const Selector = ({
     setCount: React.Dispatch<React.SetStateAction<number>>;
     onSelectorBtn: (value: number) => void;
 }) => {
-    // const onSelectorBtn = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    //     setCount(event.target.value);
-    // };
-
     return (
         <select
             value={count}

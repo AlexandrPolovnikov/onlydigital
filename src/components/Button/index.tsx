@@ -5,7 +5,7 @@ interface ButtonProps {
     text?: number | string;
     value?: string | number;
     disabled?: boolean;
-    onClick?: (event: number) => void;
+    onClick?(): void;
 }
 const Button = ({
     text = 'No text',
@@ -15,11 +15,7 @@ const Button = ({
     onClick,
 }: ButtonProps): JSX.Element => {
     return (
-        <button
-            disabled={disabled}
-            //  onClick={onClick}
-            value={value}
-            className={className}>
+        <button disabled={disabled} onClick={onClick} value={value} className={className}>
             {text}
         </button>
     );
