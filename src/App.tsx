@@ -74,6 +74,30 @@ function App(): JSX.Element {
                         </div>
 
                         <div className="main__center">
+                            <div className="main__date__count">
+                                <h4>
+                                    {count} / {types.length}
+                                </h4>
+                                <div>
+                                    <Button
+                                        className="info"
+                                        text="&#x21D0;"
+                                        value={count - 1}
+                                        onClick={() =>
+                                            onSelectorBtn(count > 1 ? count - 1 : count + 0)
+                                        }
+                                    />
+                                    <Button
+                                        className="info"
+                                        text="&#x21D2;"
+                                        value={count + 1}
+                                        onClick={() =>
+                                            onSelectorBtn(count < 4 ? count + 1 : count + 0)
+                                        }
+                                    />
+                                </div>
+                            </div>
+
                             <div className="main__date">
                                 {historyDate
                                     .filter((item: any) => item.type === count)
@@ -82,25 +106,7 @@ function App(): JSX.Element {
                                         <span>{event.year}</span>
                                     ))}
                             </div>
-                            <div className="main__date__count">
-                                <h4>
-                                    {count} / {types.length}
-                                </h4>
-                                <Button
-                                    className="info"
-                                    text="&#x21D0;"
-                                    value={count - 1}
-                                    onClick={() => onSelectorBtn(count > 1 ? count - 1 : count + 0)}
-                                />
-                                <Button
-                                    className="info"
-                                    value={count + 1}
-                                    onClick={() =>
-                                        onSelectorBtn(count <= 3 ? count + 1 : count + 0)
-                                    }
-                                    text="&#x21D2;"
-                                />
-                            </div>
+                            <div className="main__date__count"></div>
                         </div>
                         <div className="main__scroll">
                             <SwiperProp historyDate={historyDate} count={count} />
@@ -108,23 +114,29 @@ function App(): JSX.Element {
                         <div className="main__scroll__mob">
                             <SwiperProp historyDate={historyDate} count={count} />
                             <div className="main__scroll__mob-count">
-                                <h4>
-                                    {count} / {types.length}
-                                </h4>
-                                <Button
-                                    text="&#x21D0;"
-                                    className="info"
-                                    value={count - 1}
-                                    onClick={() => onSelectorBtn(count > 1 ? count - 1 : count + 0)}
-                                />
-                                <Button
-                                    value={count + 1}
-                                    className="info"
-                                    onClick={() =>
-                                        onSelectorBtn(count <= 3 ? count + 1 : count + 0)
-                                    }
-                                    text="&#x21D2;"
-                                />
+                                <div>
+                                    <h4>
+                                        {count} / {types.length}
+                                    </h4>
+                                </div>
+                                <div>
+                                    <Button
+                                        text="&#x21D0;"
+                                        className="info"
+                                        value={count - 1}
+                                        onClick={() =>
+                                            onSelectorBtn(count > 1 ? count - 1 : count + 0)
+                                        }
+                                    />
+                                    <Button
+                                        value={count + 1}
+                                        className="info"
+                                        onClick={() =>
+                                            onSelectorBtn(count < 4 ? count + 1 : count + 0)
+                                        }
+                                        text="&#x21D2;"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </>

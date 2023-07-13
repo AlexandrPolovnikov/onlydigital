@@ -52,23 +52,15 @@
 
         &__btn {
             position: absolute;
-            background: none;
-            border: none;
             width: 35px;
             height: 35px;
-            font-size: 18px;
-            font-weight: 800;
             z-index: 1;
-            color: black;
         }
         &__btn:hover {
             border: 3px solid black;
-            background-color: whitesmoke;
-            color: #000000;
+            border-radius: 50%;
             width: 50px;
             height: 50px;
-            border-radius: 50%;
-            font-size: 24px;
         }
     }
 }
@@ -99,7 +91,9 @@
     }
 
     &__center {
-        // border: 5px solid rgba(0, 0, 0, 0.099);
+        width: 80vw;
+        display: flex;
+        justify-content: space-between;
     }
 
     &__date {
@@ -115,8 +109,12 @@
         }
 
         &__count {
-            // display: flex;
-            // left: 50px;
+            width: 180px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            align-items: start;
         }
     }
     &__date span:last-child {
@@ -184,8 +182,9 @@
                 flex-direction: column;
                 &-count {
                     position: absolute;
-                    margin-top: 300px;
+                    margin-top: 350px;
                     margin-left: 30px;
+                    z-index: 1;
                 }
             }
         }
