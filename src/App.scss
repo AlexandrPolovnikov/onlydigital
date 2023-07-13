@@ -151,9 +151,9 @@
         justify-content: center;
         height: 900px;
         width: 90vw;
+        margin-left: 5%;
         &__history {
             width: 60vw;
-            // height: 200px;
             margin-left: 250px;
             border-left: 5px solid
                 linear-gradient(163.92deg, #000000 0%, rgba(0, 0, 0, 0) 61.19%, #000000 98.22%);
@@ -165,9 +165,10 @@
             }
         }
         &__date {
-            width: 90vw;
+            width: 80vw;
             padding: 50px;
             justify-content: space-around;
+            border: 1px solid red;
             span {
                 font-size: 50px;
             }
