@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.scss';
 import 'swiper/css/bundle';
 import { gsap } from 'gsap';
