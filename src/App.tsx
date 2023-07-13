@@ -73,7 +73,7 @@ function App(): JSX.Element {
                             </span>
                         </div>
 
-                        <div className="">
+                        <div className="main__center">
                             <div className="main__date">
                                 {historyDate
                                     .filter((item: any) => item.type === count)
@@ -87,11 +87,13 @@ function App(): JSX.Element {
                                     {count} / {types.length}
                                 </h4>
                                 <Button
+                                    className="info"
                                     text="&#x21D0;"
                                     value={count - 1}
                                     onClick={() => onSelectorBtn(count > 1 ? count - 1 : count + 0)}
                                 />
                                 <Button
+                                    className="info"
                                     value={count + 1}
                                     onClick={() =>
                                         onSelectorBtn(count <= 3 ? count + 1 : count + 0)
@@ -111,11 +113,13 @@ function App(): JSX.Element {
                                 </h4>
                                 <Button
                                     text="&#x21D0;"
+                                    className="info"
                                     value={count - 1}
                                     onClick={() => onSelectorBtn(count > 1 ? count - 1 : count + 0)}
                                 />
                                 <Button
                                     value={count + 1}
+                                    className="info"
                                     onClick={() =>
                                         onSelectorBtn(count <= 3 ? count + 1 : count + 0)
                                     }
