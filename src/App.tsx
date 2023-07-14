@@ -7,7 +7,7 @@ import axios from 'axios';
 import { types } from './lib/info';
 import SwiperProp from './components/Swiper';
 import Button from './components/Button';
-import { COLOR_TYPES, ICON_NAMES } from './lib/constants.enum';
+import { COLOR_TYPES } from './lib/constants.enum';
 
 function App(): JSX.Element {
     const [count, setCount] = useState<any>(1);
@@ -75,6 +75,17 @@ function App(): JSX.Element {
                         </div>
 
                         <div className="main__center">
+                            <div className="main__date">
+                                <div className="main__date-span">
+                                    {historyDate
+                                        .filter((item: any) => item.type === count)
+                                        .filter((item: any) => item.start === '1')
+                                        .map((event: any) => (
+                                            <span>{event.year}</span>
+                                        ))}
+                                </div>
+                            </div>
+
                             <div className="main__date__count">
                                 <h4>
                                     {count} / {types.length}
@@ -100,18 +111,6 @@ function App(): JSX.Element {
                                     />
                                 </div>
                             </div>
-
-                            <div className="main__date">
-                                <div className="main__date-span">
-                                    {historyDate
-                                        .filter((item: any) => item.type === count)
-                                        .filter((item: any) => item.start === '1')
-                                        .map((event: any) => (
-                                            <span>{event.year}</span>
-                                        ))}
-                                </div>
-                            </div>
-                            <div className="main__date__count"></div>
                         </div>
                         <div className="main__scroll">
                             <SwiperProp historyDate={historyDate} count={count} />
