@@ -1,4 +1,4 @@
-import { COLOR_TYPES } from '../../lib/constants.enum';
+import { COLOR_TYPES, ICON_NAMES } from '../../lib/constants.enum';
 import './index.scss';
 
 interface ButtonProps {
@@ -6,6 +6,7 @@ interface ButtonProps {
     type?: COLOR_TYPES;
     text?: number | string;
     value?: string | number;
+    iconName?: ICON_NAMES;
     disabled?: boolean;
     onClick?(): void;
 }
@@ -35,9 +36,9 @@ const Button = ({
         <button
             className={`button text ${className} ${getColor(type)}`}
             disabled={disabled}
-            value={value}
             onClick={onClick}>
             {text}
+            <span>: {value}</span>
         </button>
     );
 };

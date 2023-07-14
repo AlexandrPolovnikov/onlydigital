@@ -7,23 +7,13 @@ import axios from 'axios';
 import { types } from './lib/info';
 import SwiperProp from './components/Swiper';
 import Button from './components/Button';
+import { COLOR_TYPES, ICON_NAMES } from './lib/constants.enum';
 
 function App(): JSX.Element {
     const [count, setCount] = useState<any>(1);
     const [historyDate, setHistoryDate] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [fetching, setFetching] = useState(true);
-
-    const onSelectorBtn = (event: number) => {
-        setCount(event);
-        console.log(event);
-    };
-
-    gsap.to('.main__history', {
-        x: -250,
-
-        duration: 2,
-    });
 
     useEffect(() => {
         if (fetching) {
@@ -38,6 +28,17 @@ function App(): JSX.Element {
         }
     }, [fetching, historyDate]);
 
+    const onSelectorBtn = (event: number) => {
+        setCount(event);
+        console.log(event);
+    };
+
+    gsap.to('.main__history', {
+        x: -250,
+
+        duration: 2,
+    });
+
     return (
         <div className="App">
             <div className="container">
@@ -46,8 +47,8 @@ function App(): JSX.Element {
                         <div className="types__style">
                             <Button
                                 text={i + 1}
-                                className="types__style__btn"
-                                value={i + 1}
+                                className="info"
+                                value={e.name}
                                 onClick={() => onSelectorBtn(i + 1)}
                             />
                         </div>
@@ -80,16 +81,18 @@ function App(): JSX.Element {
                                 </h4>
                                 <div>
                                     <Button
-                                        className="info"
+                                        className="default"
                                         text="&#x21D0;"
+                                        type={COLOR_TYPES.danger}
                                         value={count - 1}
                                         onClick={() =>
                                             onSelectorBtn(count > 1 ? count - 1 : count + 0)
                                         }
                                     />
                                     <Button
-                                        className="info"
+                                        className="default"
                                         text="&#x21D2;"
+                                        type={COLOR_TYPES.danger}
                                         value={count + 1}
                                         onClick={() =>
                                             onSelectorBtn(count < 4 ? count + 1 : count + 0)
@@ -99,12 +102,14 @@ function App(): JSX.Element {
                             </div>
 
                             <div className="main__date">
-                                {historyDate
-                                    .filter((item: any) => item.type === count)
-                                    .filter((item: any) => item.start === '1')
-                                    .map((event: any) => (
-                                        <span>{event.year}</span>
-                                    ))}
+                                <div className="main__date-span">
+                                    {historyDate
+                                        .filter((item: any) => item.type === count)
+                                        .filter((item: any) => item.start === '1')
+                                        .map((event: any) => (
+                                            <span>{event.year}</span>
+                                        ))}
+                                </div>
                             </div>
                             <div className="main__date__count"></div>
                         </div>
@@ -122,19 +127,19 @@ function App(): JSX.Element {
                                 <div>
                                     <Button
                                         text="&#x21D0;"
-                                        className="info"
-                                        value={count - 1}
+                                        className="default"
+                                        type={COLOR_TYPES.danger}
                                         onClick={() =>
                                             onSelectorBtn(count > 1 ? count - 1 : count + 0)
                                         }
                                     />
                                     <Button
-                                        value={count + 1}
-                                        className="info"
+                                        className="default"
+                                        type={COLOR_TYPES.danger}
+                                        text="&#x21D2;"
                                         onClick={() =>
                                             onSelectorBtn(count < 4 ? count + 1 : count + 0)
                                         }
-                                        text="&#x21D2;"
                                     />
                                 </div>
                             </div>

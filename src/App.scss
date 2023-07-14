@@ -49,19 +49,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
-        &__btn {
-            position: absolute;
-            width: 35px;
-            height: 35px;
-            z-index: 1;
-        }
-        &__btn:hover {
-            border: 3px solid black;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-        }
     }
 }
 
@@ -92,24 +79,31 @@
 
     &__center {
         width: 80vw;
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 110px 1fr 110px;
+        // align-self: center;
+        // align-items: center;
     }
 
     &__date {
-        width: 750px;
         height: 200px;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
+        &-span {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-width: 700px;
+        }
         span {
             color: rgba(4, 63, 239, 0.75);
-            font-size: 150px;
+            font-size: 130px;
             font-weight: 600;
         }
 
         &__count {
-            width: 180px;
+            width: 280px;
             height: 250px;
             display: flex;
             flex-direction: column;
@@ -167,7 +161,10 @@
         &__date {
             width: 80vw;
             padding: 50px;
-            justify-content: space-around;
+            justify-content: center;
+            &-span {
+                min-width: 70vw;
+            }
             span {
                 font-size: 50px;
             }
